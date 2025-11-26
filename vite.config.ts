@@ -20,17 +20,12 @@ export default defineConfig(() => ({
         routes: [],
       },
       nitro: {
-        preset: 'vercel-edge'
+        preset: 'vercel-edge',
+        rollupConfig: {
+          external: [/^@cf-wasm\/.*/],
+        },
       }
     }),
     tailwindcss()
-  ],
-  ssr: {
-    external: [
-      "@cf-wasm/og",
-      "@cf-wasm/resvg",
-      "@cf-wasm/satori",
-      "@cf-wasm/photon",
-    ]
-  }
+  ]
 }));
