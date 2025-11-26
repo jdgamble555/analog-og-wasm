@@ -25,4 +25,12 @@ export default defineConfig(() => ({
     }),
     tailwindcss()
   ],
+  ssr: {
+    external: [
+      "@cf-wasm/og",
+      "@cf-wasm/resvg",
+      "@cf-wasm/satori",
+      "@cf-wasm/photon",
+    ]
+  }
 }));
