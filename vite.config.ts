@@ -28,8 +28,7 @@ export default defineConfig(() => ({
         rollupConfig: {
           external: [/^@cf-wasm\/.*/],
         },
-        compatibilityDate: "2025-07-15",
-        modules: ["nitro-cloudflare-dev"],
+        compatibilityDate: "2025-07-15"
       }
       
     }),
