@@ -69,10 +69,7 @@ async function vercelWasmModule(): Promise<import("rollup").Plugin> {
           const index = match.index;
           const len = match[0].length;
           if (index && assetName && assets.has(assetName)) {
-            const nestedLevel =
-              chunk.fileName.split("/").filter(Boolean).length - 1;
-            const relativeId =
-              (nestedLevel ? "../".repeat(nestedLevel) : "./") + assetName;
+            const relativeId = './' + assetName;
 
             replaced.overwrite(index, index + len, `${relativeId}?module`);
           }
@@ -108,15 +105,12 @@ export default defineConfig(() => ({
       nitro: {
         preset: 'vercel-edge',
         rollupConfig: {
-          //plugins: [vercelWasmModule()]
+          plugins: [vercelWasmModule()]
         },
         externals: {
           inline: ['@cf-wasm/og']
         },
-        compatibilityDate: "2025-07-15",
-        experimental: {
-          wasm: true
-        }
+        compatibilityDate: "2025-07-15"
       }
     }),
     tailwindcss()
