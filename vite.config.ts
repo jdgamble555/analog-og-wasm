@@ -114,6 +114,9 @@ export default defineConfig(() => ({
           inline: ['@cf-wasm/og']
         },
         compatibilityDate: "2025-07-15",
+        experimental: {
+          wasm: true
+        }
       }
     }),
     tailwindcss()
