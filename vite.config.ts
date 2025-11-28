@@ -104,8 +104,10 @@ export default defineConfig(() => ({
         rollupConfig: {
           plugins: [vercelWasmModule()]
         },
-        compatibilityDate: "2025-07-15"
-      }      
+        compatibilityDate: "2025-07-15",
+        experimental: { wasm: true },
+        wasm: { esmImport: true, lazy: true },
+      }
     }),
     tailwindcss()
   ]
