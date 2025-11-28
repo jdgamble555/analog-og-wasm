@@ -98,6 +98,9 @@ export default defineConfig(() => ({
   ssr: {
     noExternal: ['@cf-wasm/og'],
   },
+  optimizeDeps: {
+    exclude: ['@cf-wasm/og'],
+  },
   plugins: [
     analog({
       ssr: true,
@@ -108,12 +111,10 @@ export default defineConfig(() => ({
           plugins: [vercelWasmModule()]
         },
         externals: {
-          inline: [
-            /^@cf-wasm\/og(\/.*)?$/, // or just '@cf-wasm/og'
-          ],
+          inline: ['@cf-wasm/og']
         },
         compatibilityDate: "2025-07-15",
-      }      
+      }
     }),
     tailwindcss()
   ]
