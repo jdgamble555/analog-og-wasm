@@ -102,7 +102,7 @@ export default defineConfig(() => ({
       nitro: {
         preset: 'vercel-edge',
         rollupConfig: {
-          plugins: [vercelWasmModule()]
+          //plugins: [vercelWasmModule()]
         },
         compatibilityDate: "2025-07-15",
         experimental: { wasm: true },
