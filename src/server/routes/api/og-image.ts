@@ -1,13 +1,12 @@
-import { defineEventHandler, getQuery } from 'h3';
+import { defineEventHandler } from 'h3';
 import { ImageResponse } from '@cf-wasm/og/workerd';
 import { html } from 'satori-html';
 
-export default defineEventHandler(async (event) => {
+export default defineEventHandler(async () => {
     const fontFile = await fetch(
         'https://cdn.jsdelivr.net/npm/@fontsource/geist-sans/files/geist-sans-latin-700-normal.woff',
     );
     const fontData: ArrayBuffer = await fontFile.arrayBuffer();
-    const query = getQuery(event);
 
 
     const template = html`
@@ -20,16 +19,22 @@ export default defineEventHandler(async (event) => {
 
 `;
 
-    return await ImageResponse.async(template, {
-        width: 1200,
-        height: 630,
-        fonts: [
-            {
-                name: 'Geist Sans',
-                data: fontData,
-                weight: 700,
-                style: 'normal',
-            },
-        ],
-    });
+    try {
+        return await ImageResponse.async(template, {
+            width: 1200,
+            height: 630,
+            fonts: [
+                {
+                    name: 'Geist Sans',
+                    data: fontData,
+                    weight: 700,
+                    style: 'normal',
+                },
+            ],
+        });
+    } catch (e) {
+        console.error(e);
+        throw e;
+    }
+
 });
