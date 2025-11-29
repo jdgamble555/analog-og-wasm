@@ -4,7 +4,7 @@ import { Component } from '@angular/core';
   selector: 'app-home',
   template: `
     <h2>Analog</h2>
-    <a href="/api/og-image" target="_blank">Generate OG Image</a>
+    <a href="/api/og-image">Generate OG Image</a>
 
     <h3>The fullstack meta-framework for Angular!</h3>
 
