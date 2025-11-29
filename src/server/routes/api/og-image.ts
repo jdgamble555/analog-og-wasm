@@ -1,5 +1,5 @@
 import { defineEventHandler } from 'h3';
-import { ImageResponse } from '@cf-wasm/og/workerd';
+import { ImageResponse } from '@cf-wasm/og';
 import { html } from 'satori-html';
 
 export default defineEventHandler(async () => {
