@@ -11,7 +11,7 @@ export default defineEventHandler(async () => {
 
     const template = html`
 <div
-  style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%;"
+  style="display: flex; flex-direction: column; align-items: center; justify-content: center; width: 100%; height: 100%; background: white;"
 >
   <p>Renders HTML on Vercel Edge</p>
   <p>Hello World!</p>
